@@ -12,10 +12,16 @@ else
   fi
 fi
 local git_branch='$(git_prompt_info)%{$reset_color%}'
+local hg_branch='$(hg_prompt_info)%{$reset_color%}'
 
-PROMPT="╭─${user_host} ${current_dir} ${rvm_ruby} ${git_branch}
+PROMPT="╭─${user_host} ${current_dir} ${rvm_ruby} ${git_branch} ${hg_branch}
 ╰─%B$%b "
 RPS1="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg[yellow]%}‹"
 ZSH_THEME_GIT_PROMPT_SUFFIX="› %{$reset_color%}"
+ZSH_THEME_HG_PROMPT_PREFIX="%{$fg[yellow]%}‹"
+ZSH_THEME_HG_PROMPT_SUFFIX="› %{$reset_color%}"
+
+ZSH_THEME_HG_PROMPT_DIRTY="%{$fg[yellow]%}‹!›"
+ZSH_THEME_HG_PROMPT_CLEAN=""
